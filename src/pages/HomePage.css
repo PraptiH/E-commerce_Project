@@ -1,14 +1,25 @@
 .header {
     background-color: rgb(8, 79, 45);
     height: 90px;
-    padding: 0 15px;
+    padding: 0 25px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.left-section{
+.left-section {
     width: 220px;
+    cursor: pointer;
+}
+
+.left-section:hover {
+    border: 1px solid white;
+}
+
+@media (max-width:800px) {
+    .left-section {
+        width: unset;
+    }
 }
 
 .logo {
@@ -18,10 +29,19 @@
 
 .mobile-logo {
     display: none;
-    height: 50px;
-    margin-top: 20px;
 }
 
+@media (max-width:675px) {
+    .logo {
+        display: none;
+    }
+
+    .mobile-logo {
+        display: block;
+        height: 50px;
+        margin-top: 2px;
+    }
+}
 
 .middle-section {
     display: flex;
@@ -61,7 +81,7 @@
     display: flex;
     flex-shrink: 0;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
     color: white;
     font-weight: 700;
     font-size: 20px;
@@ -69,6 +89,12 @@
 
 .orders-link {
     padding: 13px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.orders-link:hover {
+    border: 1px solid white;
 }
 
 .orders-text {
@@ -79,10 +105,16 @@
     display: flex;
     align-items: center;
     position: relative;
+    padding: 5px;
+}
+
+.cart-link:hover {
+    border: 1px solid white;
 }
 
 .cart-icon {
     width: 38px;
+    cursor: pointer;
 }
 
 .cart-quantity {
@@ -98,4 +130,5 @@
 .cart-text {
     color: white;
     margin-left: 5px;
+    cursor: pointer;
 }
