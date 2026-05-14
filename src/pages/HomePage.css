@@ -106,6 +106,7 @@
     align-items: center;
     position: relative;
     padding: 5px;
+    text-decoration: none;
 }
 
 .cart-link:hover {
@@ -131,4 +132,51 @@
     color: white;
     margin-left: 5px;
     cursor: pointer;
+}
+
+.cart {
+    margin-top: 40px;
+    display: flex;
+    gap: 5px;
+}
+
+.cart-info {
+    padding: 10px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+.cart-text {
+    font-weight: 400;
+    font-size: 20px;
+    color: black;
+    height: 50px;
+}
+
+.rating-img {
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-weight: 700;
+    font-size: 20px;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.product-img {
+    width: 250px;
+    border-radius: 5px;
+
+}
+
+.button-primary {
+    width: 260px;
+    height: 40px;
+    font-size: 18px;
+    margin:20px;
 }
