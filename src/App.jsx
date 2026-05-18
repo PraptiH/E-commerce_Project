@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router'
-import HomePage from './pages/HomePage'
+import HomePage from './pages/HomePage/HomePage'
+import CheckOutPage from './pages/CheckOutPage/CheckOutPage'
 import './App.css'
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <>
     <Routes>
       <Route path="/" element={<HomePage/>}></Route>
+      <Route path="/checkOut" element={<CheckOutPage/>}></Route>
     </Routes>
       
     </>
