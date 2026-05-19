@@ -1,22 +1,139 @@
-.checkOutHeader{
+.checkOutHeader {
     display: flex;
     align-items: center;
     justify-content: space-around;
     height: 90px;
     position: fixed;
     top: 0;
-    bottom: 0;
     left: 0;
     right: 0;
-    border: 1px solid black;
+    background-color: white;
+    z-index: 1;
 }
 
-.checkOutIcon{
+.checkOutIcon {
     height: 50px;
     margin-top: 2px;
 }
 
-.checkOutHeader p{
+.checkOutHeader p {
     font-weight: bold;
     font-size: 24px;
+}
+
+.deliveryDate {
+    color: rgb(8, 79, 45);
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.order {
+    margin: 15vh 50px;
+    z-index: 0;
+}
+
+.order h3 {
+    margin: 5vh 22vh 2vh;
+    font-size: 22px;
+}
+
+.orderDetails {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 15px;
+}
+
+.orderDetails2 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 55%;
+}
+
+
+.orderInfo {
+    border: 1px solid rgb(223, 218, 218);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.orderInfo2 {
+    padding-top: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.orderInfo2 img {
+    width: 15%;
+}
+
+.productInfo {
+    width: 34%;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.radio-group label {
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 18px;    
+}
+
+.radio-input {
+    width: 25px;
+    height: 30px;
+    vertical-align: middle; 
+}
+
+.shippingCost {
+    margin-left: 30px;
+    font-weight: 400;
+    color: gray;
+}
+
+.productName,
+.productPrice,
+.option {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.productQuantity {
+    font-size: 18px;
+}
+
+.paymentDetails {
+    border: 1px solid rgb(223, 218, 218);
+    border-radius: 10px;
+    padding: 20px;
+    width: 20%;
+}
+
+.itemPrice,
+.totalOrder {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.totalOrder {
+    color: rgb(8, 79, 45);
+    font-weight: bold;
+    font-size: 22px;
+    margin: 30px 0;
+}
+
+.button-primary {
+    width: 100%;
+    margin: auto;
+    padding: 20px 0 40px 0;
 }
