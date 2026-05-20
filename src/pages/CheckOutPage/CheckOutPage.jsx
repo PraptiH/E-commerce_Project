@@ -16,7 +16,7 @@ function CheckOutPage() {
             </div>
 
             <div className='order'>
-                <h3>Reviw your order</h3>
+                <h3>Review your order</h3>
                 <div className='orderDetails'>
 
                     <div className='orderDetails2'>
@@ -24,12 +24,14 @@ function CheckOutPage() {
                             <h4 className='deliveryDate'>Delivery date : Wednesday, May 27</h4>
                             <div className='orderInfo2'>
 
-                                <img src={cottonSocks} alt="" />
+                                <div className='orderInfo2-leftside'>
+                                    <img src={cottonSocks} alt="" />
 
-                                <div className='productInfo'>
-                                    <p className='productName'>Black and Gray Athletic Cotton Socks - 6 Pairs</p>
-                                    <p className='productPrice'>$10.90</p>
-                                    <p className='productQuantity'>Quantity: 2 <span> Update Delete</span></p>
+                                    <div className='productInfo'>
+                                        <p className='productName'>Black and Gray Athletic Cotton Socks - 6 Pairs</p>
+                                        <p className='productPrice'>$10.90</p>
+                                        <p className='productQuantity'>Quantity: 2 <span> Update Delete</span></p>
+                                    </div>
                                 </div>
 
                                 <div className='radio-group'>
@@ -54,12 +56,14 @@ function CheckOutPage() {
                             <h4 className='deliveryDate'>Delivery date : Wednesday, May 27</h4>
                             <div className='orderInfo2'>
 
-                                <img src={basketBall} alt="" />
+                                <div className="orderInfo2-leftside">
+                                    <img src={basketBall} alt="" />
 
-                                <div className='productInfo'>
-                                    <p className='productName'>Intermediate Size Basketball</p>
-                                    <p className='productPrice'>$20.95</p>
-                                    <p className='productQuantity'>Quantity: 2 <span> Update Delete</span></p>
+                                    <div className='productInfo'>
+                                        <p className='productName'>Intermediate Size Basketball</p>
+                                        <p className='productPrice'>$20.95</p>
+                                        <p className='productQuantity'>Quantity: 2 <span> Update Delete</span></p>
+                                    </div>
                                 </div>
 
                                 <div className='radio-group'>
@@ -79,13 +83,13 @@ function CheckOutPage() {
                                 </div>
                             </div>
                         </div>
-                    </div>      
+                    </div>
 
                     <div className='paymentDetails'>
                         <h4>Payment Summary</h4>
                         <p className='itemPrice'>Items(2): <span >$31.85</span></p>
                         <p className='itemPrice'>Shipping & handling: <span>$0.00</span> </p>
-                        <hr style={{marginLeft:"85%"}} />
+                        <hr style={{ marginLeft: "85%" }} />
                         <p className='itemPrice'>Total before tax: <span>31.85</span></p>
                         <p className='itemPrice'>Estimated tax (10%): <span>3.19</span></p>
                         <hr />

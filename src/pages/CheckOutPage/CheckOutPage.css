@@ -2,6 +2,8 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    max-width: 1300px;
+    margin: 0 auto;
     height: 90px;
     position: fixed;
     top: 0;
@@ -11,14 +13,24 @@
     z-index: 1;
 }
 
+.mobile-logo {
+    display: none;
+}
+
+.checkOutHeader p {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+
 .checkOutIcon {
     height: 50px;
     margin-top: 2px;
 }
 
-.checkOutHeader p {
-    font-weight: bold;
-    font-size: 24px;
+.mobile-logo {
+    display: none;
 }
 
 .deliveryDate {
@@ -28,29 +40,27 @@
 }
 
 .order {
-    margin: 15vh 50px;
-    z-index: 0;
+    margin: 15vh auto;
+    max-width: 1300px;
 }
 
 .order h3 {
-    margin: 5vh 22vh 2vh;
-    font-size: 22px;
+    font-size: 25px;
+    margin-bottom: 16px;
 }
 
 .orderDetails {
     display: flex;
     align-items: flex-start;
-    justify-content: center;
-    gap: 15px;
+    justify-content:flex-start;
+    gap: 30px;
 }
 
 .orderDetails2 {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 55%;
 }
-
 
 .orderInfo {
     border: 1px solid rgb(223, 218, 218);
@@ -59,18 +69,22 @@
 }
 
 .orderInfo2 {
-    padding-top: 20px;
+    padding: 20px;
     display: flex;
     align-items: flex-start;
-    gap: 50px;
+    justify-content: space-between;
+    gap: 10px;
 }
 
 .orderInfo2 img {
-    width: 15%;
+    width: 120px;    
+    object-fit: cover;
 }
 
-.productInfo {
-    width: 34%;
+.orderInfo2-leftside {
+    display: flex;
+    gap: 20px;
+    width: 500px;
 }
 
 .radio-group {
@@ -82,13 +96,13 @@
 .radio-group label {
     margin-top: 10px;
     font-weight: 600;
-    font-size: 18px;    
+    font-size: 18px;
 }
 
 .radio-input {
     width: 25px;
     height: 30px;
-    vertical-align: middle; 
+    vertical-align: middle;
 }
 
 .shippingCost {
@@ -113,7 +127,7 @@
     border: 1px solid rgb(223, 218, 218);
     border-radius: 10px;
     padding: 20px;
-    width: 20%;
+    flex: 0 0 400px;
 }
 
 .itemPrice,
@@ -136,4 +150,40 @@
     width: 100%;
     margin: auto;
     padding: 20px 0 40px 0;
+}
+
+@media (max-width:900px) {
+    .orderDetails {
+        flex-direction: column-reverse;
+        align-items: stretch;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .orderDetails2 {
+        width: 100%;
+    }
+
+    .orderInfo2 {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .mobile-logo {
+        display: block;
+        height: 50px;
+        position: absolute;
+        left: 16px;
+        top: 18px;
+    }
+
+    .orderInfo2-leftside {
+        align-items: stretch;
+        width: 100%;
+    }
+
 }
