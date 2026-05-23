@@ -39,36 +39,36 @@
     font-size: 22px;
 }
 
-.order {
+.checkOutPage {
     margin: 15vh auto;
     max-width: 1300px;
 }
 
-.order h3 {
+.checkOutPage h3 {
     font-size: 25px;
     margin-bottom: 16px;
 }
 
-.orderDetails {
+.checkOutDetails {
     display: flex;
     align-items: flex-start;
     justify-content:flex-start;
     gap: 30px;
 }
 
-.orderDetails2 {
+.checkOutDetails2 {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.orderInfo {
+.checkOutInfo {
     border: 1px solid rgb(223, 218, 218);
     border-radius: 10px;
     padding: 20px;
 }
 
-.orderInfo2 {
+.checkOutInfo2 {
     padding: 20px;
     display: flex;
     align-items: flex-start;
@@ -76,12 +76,12 @@
     gap: 10px;
 }
 
-.orderInfo2 img {
+.checkOutInfo2 img {
     width: 120px;    
     object-fit: cover;
 }
 
-.orderInfo2-leftside {
+.checkOutInfo2-leftside {
     display: flex;
     gap: 20px;
     width: 500px;
@@ -153,18 +153,18 @@
 }
 
 @media (max-width:900px) {
-    .orderDetails {
+    .checkOutDetails {
         flex-direction: column-reverse;
         align-items: stretch;
         width: 100%;
         gap: 20px;
     }
 
-    .orderDetails2 {
+    .checkOutDetails2 {
         width: 100%;
     }
 
-    .orderInfo2 {
+    .checkOutInfo2 {
         flex-direction: column;
         gap: 25px;
     }
@@ -181,7 +181,7 @@
         top: 18px;
     }
 
-    .orderInfo2-leftside {
+    .checkOutInfo2-leftside {
         align-items: stretch;
         width: 100%;
     }

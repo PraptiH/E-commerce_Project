@@ -15,16 +15,16 @@ function CheckOutPage() {
                 <img className='checkOutIcon' src={checkOutIcon} alt="" />
             </div>
 
-            <div className='order'>
-                <h3>Review your order</h3>
-                <div className='orderDetails'>
+            <div className='checkOutPage'>
+                <h3>Review your checkOut</h3>
+                <div className='checkOutDetails'>
 
-                    <div className='orderDetails2'>
-                        <div className='orderInfo'>
+                    <div className='checkOutDetails2'>
+                        <div className='checkOutInfo'>
                             <h4 className='deliveryDate'>Delivery date : Wednesday, May 27</h4>
-                            <div className='orderInfo2'>
+                            <div className='checkOutInfo2'>
 
-                                <div className='orderInfo2-leftside'>
+                                <div className='checkOutInfo2-leftside'>
                                     <img src={cottonSocks} alt="" />
 
                                     <div className='productInfo'>
@@ -52,11 +52,11 @@ function CheckOutPage() {
                             </div>
                         </div>
 
-                        <div className='orderInfo'>
+                        <div className='checkOutInfo'>
                             <h4 className='deliveryDate'>Delivery date : Wednesday, May 27</h4>
-                            <div className='orderInfo2'>
+                            <div className='checkOutInfo2'>
 
-                                <div className="orderInfo2-leftside">
+                                <div className="checkOutInfo2-leftside">
                                     <img src={basketBall} alt="" />
 
                                     <div className='productInfo'>
@@ -93,7 +93,7 @@ function CheckOutPage() {
                         <p className='itemPrice'>Total before tax: <span>31.85</span></p>
                         <p className='itemPrice'>Estimated tax (10%): <span>3.19</span></p>
                         <hr />
-                        <p className='totalOrder'>Order total: <span>$35.04</span></p>
+                        <p className='totalOrder'>checkOut total: <span>$35.04</span></p>
                         <button className='button-primary'>Place your order</button>
                     </div>
                 </div>
