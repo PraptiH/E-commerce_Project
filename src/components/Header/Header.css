@@ -104,6 +104,10 @@
     border: 1px solid white;
 }
 
+.orders-link.active{
+    text-decoration: underline;
+}
+
 .cart-link {
     display: flex;
     align-items: center;

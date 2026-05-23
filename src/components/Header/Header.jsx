@@ -2,7 +2,7 @@ import logo from '../../assets/logo-white.png'
 import mobileLogo from '../../assets/mobile-logo-white.png'
 import searchIcon from '../../assets/search-icon.png'
 import cartIcon from '../../assets/cart-icon.png'
-import { Link } from 'react-router'
+import { NavLink } from 'react-router'
 import './Header.css'
 
 function Header() {
@@ -10,10 +10,10 @@ function Header() {
         <>
             <div className="header">
                 <div className="left-section">
-                    <Link className="header-link" to="/">
+                    <NavLink className="header-link" to="/">
                         <img className='logo' src={logo} />
                         <img className="mobile-logo" src={mobileLogo} />
-                    </Link>
+                    </NavLink>
                 </div>
 
                 <div className='middle-section'>
@@ -24,15 +24,18 @@ function Header() {
                 </div>
 
                 <div className="right-section">
-                    <Link to='/order' className="orders-link header-link">
+                    <NavLink
+                        to='/order'
+                        className={({ isActive }) => `orders-link header-link${isActive ? ' active' : ''}`}
+                    >
                         <span className="orders-text">Orders</span>
-                    </Link>
+                    </NavLink>
 
-                    <Link to="/checkOut" className="cart-link">
+                    <NavLink to="/checkOut" className="cart-link">
                         <img className="cart-icon" src={cartIcon} alt="" />
                         <p className="cart-quantity">3</p>
                         <p className="cart-text">Cart</p>
-                    </Link>
+                    </NavLink>
                 </div>
             </div>
         </>
