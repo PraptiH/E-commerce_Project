@@ -4,13 +4,16 @@ import checkOutIcon from '../../assets/checkout-lock-icon.png'
 import cottonSocks from '../../assets/athletic-cotton-socks-6-pairs.jpg'
 import basketBall from '../../assets/intermediate-composite-basketball.jpg'
 import './CheckOutPage.css'
+import { Link } from 'react-router'
 
 function CheckOutPage() {
     return (
         <>
             <div className="checkOutHeader">
-                <img className='logo' src={logo} alt="" />
-                <img className='mobile-logo' src={mobileLogo} alt="" />
+                <Link to="/">
+                    <img className='logo' src={logo} alt="" />
+                    <img className='mobile-logo' src={mobileLogo} alt="" />
+                </Link>
                 <p>CheckOut <span style={{ color: 'green' }}>(2 items)</span></p>
                 <img className='checkOutIcon' src={checkOutIcon} alt="" />
             </div>

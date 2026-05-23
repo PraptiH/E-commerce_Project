@@ -5,39 +5,15 @@ import cartIcon from '../../assets/cart-icon.png'
 import socks from '../../assets/athletic-cotton-socks-6-pairs.jpg'
 import basketball from '../../assets/intermediate-composite-basketball.jpg'
 import './OrderPage.css'
+import Header from '../../components/Header/Header'
 
 
 function OrderPage() {
     return (
         <>
-            <>Order Page</>
-            <div className="header">
-                <div className="left-section">
-                    <a className="header-link" href="/">
-                        <img className='logo' src={logo} />
-                        <img className="mobile-logo" src={mobileLogo} />
-                    </a>
-                </div>
-
-                <div className='middle-section'>
-                    <input className='search-bar' type="text" placeholder='Search' />
-                    <button className='search-button'>
-                        <img className='search-icon' src={searchIcon} alt="" />
-                    </button>
-                </div>
-
-                <div className="right-section">
-                    <a className="orders-link header-link">
-                        <span className="orders-text">Orders</span>
-                    </a>
-
-                    <a href="" className="cart-link">
-                        <img className="cart-icon" src={cartIcon} alt="" />
-                        <p className="cart-quantity">3</p>
-                        <p className="cart-text">Cart</p>
-                    </a>
-                </div>
-            </div>
+            <title>Order Page</title>
+            
+            <Header/>
 
             <div className='orderPage'>
                 <h2>Your orders</h2>
