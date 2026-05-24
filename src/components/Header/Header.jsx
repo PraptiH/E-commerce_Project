@@ -5,7 +5,14 @@ import cartIcon from '../../assets/cart-icon.png'
 import { NavLink } from 'react-router'
 import './Header.css'
 
-function Header() {
+function Header({cart}) {
+
+    let totalCartItem=0
+
+    cart.forEach((cartItem)=>{
+        totalCartItem += cartItem.quantity
+    })
+
     return (
         <>
             <div className="header">
@@ -33,7 +40,7 @@ function Header() {
 
                     <NavLink to="/checkOut" className="cart-link">
                         <img className="cart-icon" src={cartIcon} alt="" />
-                        <p className="cart-quantity">3</p>
+                        <p className="cart-quantity">{totalCartItem}</p>
                         <p className="cart-text">Cart</p>
                     </NavLink>
                 </div>
