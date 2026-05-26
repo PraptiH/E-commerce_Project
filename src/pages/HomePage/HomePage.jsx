@@ -1,25 +1,19 @@
 import axios from 'axios'
-import './HomePage.css'
 import Header from '../../components/Header/Header'
 import { useEffect, useState } from 'react'
+import formateMoney from '../../utilities/money'
+import './HomePage.css'
 
-function HomePage() {
+function HomePage({ cart }) {
 
     const [products, setProducts] = useState([])
-    const [cart, setCart] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:3000/api/products')
+        axios.get('/api/products')
             .then((response) => {
                 setProducts(response.data)
             })
-
-        axios.get('http://localhost:3000/api/cart-items')
-            .then((response) => {
-                setCart(response.data)
-            })
-        
-    },[])
+    }, [])
 
     return (
         <>
@@ -45,7 +39,7 @@ function HomePage() {
                                     <p>{product.rating.count}</p>
                                 </div>
 
-                                <p className='product-price'>${((product.priceCents) / 100).toFixed(2)}</p>
+                                <p className='product-price'>{formateMoney(product.priceCents)}</p>
                                 <button className='button-secondary'>1</button>
 
                                 <button className='button-primary'>Add to Cart</button>

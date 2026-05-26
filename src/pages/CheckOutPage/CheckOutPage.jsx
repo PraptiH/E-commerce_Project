@@ -1,12 +1,25 @@
 import logo from '../../assets/logo-green.png'
 import mobileLogo from '../../assets/mobile-logo-green.png'
 import checkOutIcon from '../../assets/checkout-lock-icon.png'
-import cottonSocks from '../../assets/athletic-cotton-socks-6-pairs.jpg'
-import basketBall from '../../assets/intermediate-composite-basketball.jpg'
-import './CheckOutPage.css'
 import { Link } from 'react-router'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import dayjs from 'dayjs'
+import formateMoney from '../../utilities/money'
+import './CheckOutPage.css'
 
-function CheckOutPage() {
+
+function CheckOutPage({ cart }) {
+
+    const [deliveryOptions, setDeliveryOptions] = useState([])
+
+    useEffect(() => {
+        axios.get('/api/delivery-options?expand=estimatedDeliveryTime')
+            .then((response) => {
+                setDeliveryOptions(response.data)
+            })
+    }, [])
+
     return (
         <>
             <div className="checkOutHeader">
@@ -23,69 +36,47 @@ function CheckOutPage() {
                 <div className='checkOutDetails'>
 
                     <div className='checkOutDetails2'>
-                        <div className='checkOutInfo'>
-                            <h4 className='deliveryDate'>Delivery date : Wednesday, May 27</h4>
-                            <div className='checkOutInfo2'>
+                        {deliveryOptions.length>0 && cart.map((cartItem) => {
 
-                                <div className='checkOutInfo2-leftside'>
-                                    <img src={cottonSocks} alt="" />
+                            const selectedDeliveryOption = deliveryOptions.find((deliveryOption) => { 
+                                return deliveryOption.id === cartItem.deliveryOptionId
+                            })
 
-                                    <div className='productInfo'>
-                                        <p className='productName'>Black and Gray Athletic Cotton Socks - 6 Pairs</p>
-                                        <p className='productPrice'>$10.90</p>
-                                        <p className='productQuantity'>Quantity: 2 <span> Update Delete</span></p>
+                            return (
+                                <div key={cartItem.productId} className='checkOutInfo'>
+                                    <h4 className='deliveryDate'>{dayjs(selectedDeliveryOption.estimatedDeliveryTimeMs).format('dddd,  MMMM D')}</h4>
+                                    <div className='checkOutInfo2'>
+
+                                        <div className='checkOutInfo2-leftside'>
+                                            <img src={cartItem.product.image} alt="" />
+
+                                            <div className='productInfo'>
+                                                <p className='productName'>{cartItem.product.name}</p>
+                                                <p className='productPrice'>{formateMoney(cartItem.product.priceCents)}</p>
+                                                <p className='productQuantity'>Quantity: {cartItem.quantity}<span> Update Delete</span></p>
+                                            </div>
+                                        </div>
+
+                                        <div className='radio-group'>
+                                            <p className='option'>Choose a delivery option:</p>
+
+                                            {deliveryOptions.map((deliveryOption) => {
+                                                let shippingPrice = 'FREE Shipping'
+                                                if (deliveryOption.priceCents > 0) {
+                                                    shippingPrice = `${formateMoney(deliveryOption.priceCents)} - shipping`
+                                                }
+                                                return (
+                                                    <label key={deliveryOption.id}>
+                                                        <input className='radio-input' type="radio" checked={deliveryOption.id === cartItem.deliveryOptionId} name={`Delivery-option-${cartItem.productId}`} />{dayjs(deliveryOption.estimatedDeliveryTimeMs).format('dddd, MMMM D')}
+                                                        <p className='shippingCost'>{shippingPrice}</p>
+                                                    </label>
+                                                )
+                                            })}
+                                        </div>
                                     </div>
                                 </div>
-
-                                <div className='radio-group'>
-                                    <p className='option'>Choose a delivery option:</p>
-                                    <label>
-                                        <input className='radio-input' type="radio" name='options' />Wednesday, May 27
-                                        <p className='shippingCost'>FREE Shipping</p>
-                                    </label>
-                                    <label>
-                                        <input className='radio-input' type="radio" name='options' />Thursday, May 21
-                                        <p className='shippingCost'>$4.99 - Shipping</p>
-                                    </label>
-                                    <label>
-                                        <input className='radio-input' type="radio" name='options' />Tuesday, May 19
-                                        <p className='shippingCost'>$4.99 - Shipping</p>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className='checkOutInfo'>
-                            <h4 className='deliveryDate'>Delivery date : Wednesday, May 27</h4>
-                            <div className='checkOutInfo2'>
-
-                                <div className="checkOutInfo2-leftside">
-                                    <img src={basketBall} alt="" />
-
-                                    <div className='productInfo'>
-                                        <p className='productName'>Intermediate Size Basketball</p>
-                                        <p className='productPrice'>$20.95</p>
-                                        <p className='productQuantity'>Quantity: 2 <span> Update Delete</span></p>
-                                    </div>
-                                </div>
-
-                                <div className='radio-group'>
-                                    <p className='option'>Choose a delivery option:</p>
-                                    <label>
-                                        <input className='radio-input' type="radio" name='options' />Wednesday, May 27
-                                        <p className='shippingCost'>FREE Shipping</p>
-                                    </label>
-                                    <label>
-                                        <input className='radio-input' type="radio" name='options' />Thursday, May 21
-                                        <p className='shippingCost'>$4.99 - Shipping</p>
-                                    </label>
-                                    <label>
-                                        <input className='radio-input' type="radio" name='options' />Tuesday, May 19
-                                        <p className='shippingCost'>$4.99 - Shipping</p>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                            )
+                        })}
                     </div>
 
                     <div className='paymentDetails'>

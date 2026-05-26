@@ -8,12 +8,12 @@ import './OrderPage.css'
 import Header from '../../components/Header/Header'
 
 
-function OrderPage() {
+function OrderPage({cart}) {
     return (
         <>
             <title>Order Page</title>
             
-            <Header/>
+            <Header cart={cart}/>
 
             <div className='orderPage'>
                 <h2>Your orders</h2>
