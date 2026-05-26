@@ -12,11 +12,17 @@ import './CheckOutPage.css'
 function CheckOutPage({ cart }) {
 
     const [deliveryOptions, setDeliveryOptions] = useState([])
+    const [paymentSummary, setPaymentSummary] = useState(null)
 
     useEffect(() => {
         axios.get('/api/delivery-options?expand=estimatedDeliveryTime')
             .then((response) => {
                 setDeliveryOptions(response.data)
+            })
+
+        axios.get('/api/payment-summary')
+            .then((response) => {
+                setPaymentSummary(response.data)
             })
     }, [])
 
@@ -36,9 +42,9 @@ function CheckOutPage({ cart }) {
                 <div className='checkOutDetails'>
 
                     <div className='checkOutDetails2'>
-                        {deliveryOptions.length>0 && cart.map((cartItem) => {
+                        {deliveryOptions.length > 0 && cart.map((cartItem) => {
 
-                            const selectedDeliveryOption = deliveryOptions.find((deliveryOption) => { 
+                            const selectedDeliveryOption = deliveryOptions.find((deliveryOption) => {
                                 return deliveryOption.id === cartItem.deliveryOptionId
                             })
 
@@ -80,15 +86,21 @@ function CheckOutPage({ cart }) {
                     </div>
 
                     <div className='paymentDetails'>
-                        <h4>Payment Summary</h4>
-                        <p className='itemPrice'>Items(2): <span >$31.85</span></p>
-                        <p className='itemPrice'>Shipping & handling: <span>$0.00</span> </p>
-                        <hr style={{ marginLeft: "85%" }} />
-                        <p className='itemPrice'>Total before tax: <span>31.85</span></p>
-                        <p className='itemPrice'>Estimated tax (10%): <span>3.19</span></p>
-                        <hr />
-                        <p className='totalOrder'>checkOut total: <span>$35.04</span></p>
-                        <button className='button-primary'>Place your order</button>
+                        {
+                            paymentSummary && (
+                                <>
+                                    <h4>Payment Summary</h4>
+                                    <p className='itemPrice'>Items({paymentSummary.totalItems}): <span >{formateMoney(paymentSummary.productCostCents)}</span></p>
+                                    <p className='itemPrice'>Shipping & handling: <span>{formateMoney(paymentSummary.shippingCostCents)}</span> </p>
+                                    <hr style={{ marginLeft: "85%" }} />
+                                    <p className='itemPrice'>Total before tax: <span>{formateMoney(paymentSummary.totalCostBeforeTaxCents)}</span></p>
+                                    <p className='itemPrice'>Estimated tax (10%): <span>{formateMoney(paymentSummary.taxCents)}</span></p>
+                                    <hr />
+                                    <p className='totalOrder'>checkOut total: <span>{formateMoney(paymentSummary.totalCostCents)}</span></p>
+                                    <button className='button-primary'>Place your order</button>
+                                </>
+                            )
+                        }
                     </div>
                 </div>
             </div>
