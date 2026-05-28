@@ -4,7 +4,6 @@ import { Routes, Route } from 'react-router'
 import HomePage from './pages/HomePage/HomePage'
 import CheckOutPage from './pages/CheckOutPage/CheckOutPage'
 import OrderPage from './pages/OrderPage/OrderPage'
-import './App.css'
 
 function App() {
 
