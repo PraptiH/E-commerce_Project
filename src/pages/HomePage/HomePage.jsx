@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import formateMoney from '../../utilities/money'
 import './HomePage.css'
 
-function HomePage({ cart }) {
+function HomePage({ cart, loadCartData }) {
 
     const [products, setProducts] = useState([])
     const [selectedQuantity, setSelectedQuantity] = useState({})
@@ -12,8 +12,16 @@ function HomePage({ cart }) {
     const handleQuantityChange = (productId, quantity) => {
         setSelectedQuantity({
             ...selectedQuantity,
-            [productId]: quantity
+            [productId]: Number(quantity)
         })
+    }
+
+    const addToCart = async (productId) => {
+        await axios.post('/api/cart-items', {
+            productId,
+            quantity: Number(selectedQuantity[productId] || 1)
+        })
+        await loadCartData()
     }
 
     useEffect(() => {
@@ -50,24 +58,27 @@ function HomePage({ cart }) {
                                 </div>
 
                                 <p className='product-price'>{formateMoney(product.priceCents)}</p>
-                                <select value={selectedQuantity[product.id] || 1} onChange={(e) => handleQuantityChange(product.id, e.target.value)} className='button-secondary'>
+                                <select value={selectedQuantity[product.id] || 1}
+                                    onChange={(e) => handleQuantityChange(product.id, e.target.value)} className='button-secondary'>
 
-                                   
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                  
+
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+
 
                                 </select>
 
-                                <button className='button-primary'>Add to Cart</button>
+                                <button className='button-primary'
+                                    onClick={()=>addToCart(product.id)}
+                                >Add to Cart</button>
                             </div>
 
                         </div>
