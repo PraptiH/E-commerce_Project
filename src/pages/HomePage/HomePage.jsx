@@ -1,4 +1,3 @@
-import downArrow from '../../assets/down-arrow.png'
 import axios from 'axios'
 import Header from '../../components/Header/Header'
 import { useEffect, useState } from 'react'
@@ -8,16 +7,13 @@ import './HomePage.css'
 function HomePage({ cart }) {
 
     const [products, setProducts] = useState([])
-    const [isOpen, setIsopen] = useState(null)
+    const [selectedQuantity, setSelectedQuantity] = useState({})
 
-    const openDropDown = (productId) => {
-        if (isOpen === productId) {
-            setIsopen(null)
-        }
-        else {
-            setIsopen(productId)
-        }
-        console.log("click")
+    const handleQuantityChange = (productId, quantity) => {
+        setSelectedQuantity({
+            ...selectedQuantity,
+            [productId]: quantity
+        })
     }
 
     useEffect(() => {
@@ -54,28 +50,22 @@ function HomePage({ cart }) {
                                 </div>
 
                                 <p className='product-price'>{formateMoney(product.priceCents)}</p>
-                                <div>
-                                    <button className='button-secondary' onClick={() => openDropDown(product.id)}>1
-                                        <img className='downArrow' src={downArrow} alt="" />
-                                        {
-                                            isOpen === product.id && (
-                                                <div className='dropDown'>
-                                                    <p>1</p>
-                                                    <p>2</p>
-                                                    <p>3</p>
-                                                    <p>4</p>
-                                                    <p>5</p>
-                                                    <p>6</p>
-                                                    <p>7</p>
-                                                    <p>8</p>
-                                                    <p>9</p>
-                                                    <p>10</p>
-                                                </div>
-                                            )
-                                        }
-                                    </button>
+                                <select value={selectedQuantity[product.id] || 1} onChange={(e) => handleQuantityChange(product.id, e.target.value)} className='button-secondary'>
 
-                                </div>
+                                   
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                  
+
+                                </select>
 
                                 <button className='button-primary'>Add to Cart</button>
                             </div>

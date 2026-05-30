@@ -54,31 +54,30 @@
 
 .button-secondary {
     position: relative;
-    display: flex;
-    align-items: center;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+    top: 0;
+    bottom: 0;
+    
+    /* gap: 18px; */
     font-size: 20px;
     padding: 5px 10px;
     margin: 15px 0 40px 0;
 }
 
-.downArrow {
-    width: 20px;
-}
+/* .downArrow {
+    width: 15px;
+}*/
 
 .dropDown {
     position: absolute;
     display: grid;
-    top: 35px;
+    top: 0px;
     left: 0;
     background-color: white;
     border: 1px solid black;
     font-size: 20px;
     padding: 10px 30px 10px 12px;
     gap: 8px;
-}
+} 
 
 .bottom-line {
     color: red;
