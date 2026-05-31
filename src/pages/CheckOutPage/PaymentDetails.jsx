@@ -1,10 +1,18 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import formateMoney from "../../utilities/money"
+import { useNavigate } from "react-router"
 
-function PaymentDetails({cart}) {
+function PaymentDetails({cart, loadCartData}) {
 
     const [paymentSummary, setPaymentSummary] = useState(null)
+    const navigate= useNavigate()
+
+    const placeOrder = async()=>{
+        await axios.post('/api/orders')
+        await loadCartData()
+        navigate('/order')
+    }
 
     useEffect(() => {
 
@@ -28,7 +36,7 @@ function PaymentDetails({cart}) {
                         <p className='itemPrice'>Estimated tax (10%): <span>{formateMoney(paymentSummary.taxCents)}</span></p>
                         <hr />
                         <p className='totalOrder'>checkOut total: <span>{formateMoney(paymentSummary.totalCostCents)}</span></p>
-                        <button className='button-primary'>Place your order</button>
+                        <button onClick={placeOrder} className='button-primary'>Place your order</button>
                     </>
                 )
             }

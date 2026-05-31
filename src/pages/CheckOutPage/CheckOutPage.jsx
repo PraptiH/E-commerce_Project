@@ -26,7 +26,7 @@ function CheckOutPage({ cart, loadCartData }) {
 
                     <CheckOutProduct cart={cart} loadCartData={loadCartData}/>
 
-                    <PaymentDetails cart={cart}/>
+                    <PaymentDetails cart={cart} loadCartData={loadCartData}/>
                 </div>
             </div>
         </>
