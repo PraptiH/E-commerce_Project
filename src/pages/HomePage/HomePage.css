@@ -16,6 +16,7 @@
     justify-content: start;
 }
 
+
 .product-text {
     font-weight: 400;
     font-size: 20px;
@@ -53,32 +54,16 @@
 }
 
 .button-secondary {
-    position: relative;
-    top: 0;
-    bottom: 0;
-    
-    /* gap: 18px; */
     font-size: 20px;
     padding: 5px 10px;
-    margin: 15px 0 40px 0;
+    margin: 15px 0 50px 0;
 }
 
-/* .downArrow {
-    width: 15px;
-}*/
-
-.dropDown {
+.addedCart {
+    display: flex;
+    align-items: center;
     position: absolute;
-    display: grid;
-    top: 0px;
-    left: 0;
-    background-color: white;
-    border: 1px solid black;
+    transform: translatey(-100%);
+    color: rgb(28, 73, 28);
     font-size: 20px;
-    padding: 10px 30px 10px 12px;
-    gap: 8px;
-} 
-
-.bottom-line {
-    color: red;
 }

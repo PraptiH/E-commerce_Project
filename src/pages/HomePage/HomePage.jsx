@@ -1,3 +1,4 @@
+import checkMark from '../../assets/checkmark.png'
 import axios from 'axios'
 import Header from '../../components/Header/Header'
 import { useEffect, useState } from 'react'
@@ -8,6 +9,7 @@ function HomePage({ cart, loadCartData }) {
 
     const [products, setProducts] = useState([])
     const [selectedQuantity, setSelectedQuantity] = useState({})
+    const [addedProductId, setAddedProductId] = useState(null)
 
     const handleQuantityChange = (productId, quantity) => {
         setSelectedQuantity({
@@ -22,6 +24,8 @@ function HomePage({ cart, loadCartData }) {
             quantity: Number(selectedQuantity[productId] || 1)
         })
         await loadCartData()
+        setAddedProductId(productId)
+        setTimeout(() => setAddedProductId(null), 2000)
     }
 
     useEffect(() => {
@@ -76,9 +80,19 @@ function HomePage({ cart, loadCartData }) {
 
                                 </select>
 
+                                {
+                                    addedProductId === product.id && (
+                                        <div className='addedCart'>
+                                            <img className='cart-icon' src={checkMark} alt="" />
+                                            <p>Added</p>
+                                        </div>
+                                    )
+                                }
+
                                 <button className='button-primary'
-                                    onClick={()=>addToCart(product.id)}
-                                >Add to Cart</button>
+                                    onClick={() => addToCart(product.id)}
+                                >Add to Cart
+                                </button>
                             </div>
 
                         </div>

@@ -21,7 +21,7 @@ function CheckOutPage({ cart, loadCartData }) {
             </div>
 
             <div className='checkOutPage'>
-                <h3>Review your checkOut</h3>
+                <h3>Review your order</h3>
                 <div className='checkOutDetails'>
 
                     <CheckOutProduct cart={cart} loadCartData={loadCartData}/>

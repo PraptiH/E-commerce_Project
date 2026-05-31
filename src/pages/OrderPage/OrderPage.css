@@ -44,7 +44,7 @@
     font-weight: 400;
 }
 
-.orderCard{
+.orderCard {
     display: flex;
     flex-direction: column;
     row-gap: 15px;
@@ -84,6 +84,10 @@
 
 .cart-icon {
     width: 30px;
+}
+
+.hidden-icon {
+    display: none;
 }
 
 .btn-primary {

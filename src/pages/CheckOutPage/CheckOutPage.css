@@ -52,7 +52,7 @@
 .checkOutDetails {
     display: flex;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: space-between;
     gap: 30px;
 }
 
@@ -85,6 +85,17 @@
     display: flex;
     gap: 20px;
     width: 500px;
+}
+
+.emptyCart{
+    width: 300px;
+    margin: 10px;
+}
+
+.emptyCart p{
+    font-weight: 500;
+    font-size: 25px;
+    margin-bottom: 20px;
 }
 
 .radio-group {
