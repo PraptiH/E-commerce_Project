@@ -3,10 +3,15 @@ import formateMoney from "../../utilities/money"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import DeliveryOption from "./DeliveryOption"
+import UpdateQuantity from "./UpdateQuantity"
 
 function CheckOutProduct({ cart, loadCartData }) {
 
     const [deliveryOptions, setDeliveryOptions] = useState([])
+
+    const saveUpdatedQuantity = () => {
+        setIsEditing(false)
+    }
 
     useEffect(() => {
         const fetchDeliveryOptionData = async () => {
@@ -19,10 +24,17 @@ function CheckOutProduct({ cart, loadCartData }) {
 
     return (
         <div className='checkOutDetails2'>
-            {deliveryOptions.length>0 && cart.map((cartItem) => {
+            {deliveryOptions.length > 0 && cart.map((cartItem) => {
                 const selectedDeliveryOption = deliveryOptions.find((deliveryOption) => {
                     return deliveryOption.id === cartItem.deliveryOptionId
                 })
+
+                const deleteCartItem = async () => {
+                    await axios.delete(`/api/cart-items/${cartItem.productId}`)
+                    await loadCartData()
+                }
+
+
 
                 return (
                     <div key={cartItem.productId} className='checkOutInfo'>
@@ -40,7 +52,9 @@ function CheckOutProduct({ cart, loadCartData }) {
                                 <div className='productInfo'>
                                     <p className='productName'>{cartItem.product.name}</p>
                                     <p className='productPrice'>{formateMoney(cartItem.product.priceCents)}</p>
-                                    <p className='productQuantity'>Quantity: {cartItem.quantity}<span> Update Delete</span></p>
+                                    <p className='productQuantity'>Quantity : 
+                                        <UpdateQuantity cartItem={cartItem} loadCartData={loadCartData} />
+                                        <span onClick={deleteCartItem}> Delete</span></p>
                                 </div>
                             </div>
 

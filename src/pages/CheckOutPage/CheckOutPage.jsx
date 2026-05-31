@@ -9,8 +9,6 @@ import PaymentDetails from './PaymentDetails'
 
 function CheckOutPage({ cart, loadCartData }) {
 
-    
-
     return (
         <>
             <div className="checkOutHeader">
