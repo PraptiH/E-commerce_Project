@@ -5,6 +5,7 @@ import { Link } from 'react-router'
 import './CheckOutPage.css'
 import CheckOutProduct from './CheckOutProduct'
 import PaymentDetails from './PaymentDetails'
+import Reset from '../../components/Reset/Reset'
 
 
 function CheckOutPage({ cart, loadCartData }) {
@@ -29,6 +30,8 @@ function CheckOutPage({ cart, loadCartData }) {
                     <PaymentDetails cart={cart} loadCartData={loadCartData}/>
                 </div>
             </div>
+
+            <Reset/>
         </>
     )
 }

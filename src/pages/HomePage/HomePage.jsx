@@ -4,6 +4,7 @@ import Header from '../../components/Header/Header'
 import { useEffect, useState } from 'react'
 import formateMoney from '../../utilities/money'
 import './HomePage.css'
+import Reset from '../../components/Reset/Reset'
 
 function HomePage({ cart, loadCartData }) {
 
@@ -100,6 +101,8 @@ function HomePage({ cart, loadCartData }) {
                 })}
 
             </div>
+
+            <Reset/>
         </>
     )
 }

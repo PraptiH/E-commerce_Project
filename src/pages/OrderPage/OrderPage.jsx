@@ -6,6 +6,7 @@ import axios from 'axios'
 import dayjs from 'dayjs'
 import './OrderPage.css'
 import formateMoney from '../../utilities/money'
+import Reset from '../../components/Reset/Reset'
 
 
 function OrderPage({ cart, loadCartData }) {
@@ -97,6 +98,8 @@ function OrderPage({ cart, loadCartData }) {
                 }
 
             </div>
+
+            <Reset/>
         </>
     )
 }
